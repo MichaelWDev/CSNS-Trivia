@@ -7,17 +7,23 @@ interface QuestionData {
 	choices: string[];
 	answerIndex: number;
 	difficulty?: 'easy' | 'medium' | 'hard';
+	disabled?: boolean;
 }
 
-function QuestionCard(question: QuestionData, onSelect: (choiceIndex: number) => void, disabled?: boolean) {
-	
-return (
-	<>
-	<div>
+function QuestionCard(props: { question: QuestionData; selectedIndex: number | null; onSelect: (index: number) => void; disabled?: boolean }) {
 
-	</div>
-	</>
-)
+	const { question, selectedIndex, onSelect, disabled } = props;
+
+	return (
+		<>
+		<div>
+			<h2>{question.text}</h2>
+			<div className ="choices-container">
+				
+			</div>
+		</div>
+		</>
+	)
 }
 
 export default QuestionCard
